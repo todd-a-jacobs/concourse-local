@@ -62,7 +62,7 @@ the prerequisites have been met.
 
 ## Usage
 
-    open -a Safari http://localhost:8080
+    open http://localhost:8080
 
 ----
 
