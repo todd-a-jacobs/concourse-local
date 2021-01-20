@@ -43,5 +43,5 @@ until true &>/dev/null </dev/tcp/127.0.0.1/8080; do
 done
 
 print_to_stderr 'Launching default browser ...'
-sleep 3
+sleep 5
 open http://localhost:8080
