@@ -47,7 +47,7 @@ print_to_stderr 'Starting containers ...'
 docker-compose up -d
 
 print_to_stderr 'Waiting for active port ...'
-until true &>/dev/null </dev/tcp/127.0.0.1/8080; do
+until true &>/dev/null <"$CONCOURSE_TCP_SOCKET"; do
     sleep 1
 done
 
