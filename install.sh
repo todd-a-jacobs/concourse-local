@@ -25,10 +25,10 @@ brew install --cask virtualbox{,-extension-pack} docker fly
 # work around unsigned golang app without GUI interaction
 xattr -dr com.apple.quarantine "$(brew --prefix)/bin/fly"
 
-concourse_dir="$HOME/Documents/docker/concourse"
-    mkdir -p "$concourse_dir" &&
-    cd "$concourse_dir" &&
-    wget -N 'https://concourse-ci.org/docker-compose.yml'
+# retrieve vendor's docker-compose.yml file
+mkdir -p "$CONCOURSE_DIR" &&
+    cd "$CONCOURSE_DIR" &&
+    wget -N "$CFG_YAML"
 
 print_to_stderr () {
     echo >&2
