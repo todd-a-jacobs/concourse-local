@@ -51,6 +51,7 @@ until true &>/dev/null </dev/tcp/127.0.0.1/8080; do
     sleep 1
 done
 
-print_to_stderr 'Launching default browser ...'
-sleep 5
-open http://localhost:8080
+print_to_stderr \
+    "Launching default browser in $BROWSER_DELAY_SECS seconds ..."
+sleep "$BROWSER_DELAY_SECS"
+open "$CONCOURSE_LOCAL_URL"
