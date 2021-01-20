@@ -9,6 +9,15 @@
 # 	Simplify installation of a local instance of Concourse-CI and the fly
 #	binary under macOS.
 
+: ${BROWSER_DELAY_SECS:=5}
+: ${CFG_YAML:='https://concourse-ci.org/docker-compose.yml'}
+: ${CONCOURSE_DIR:="$HOME/Documents/docker/concourse"}
+: ${CONCOURSE_HOST:='localhost'}
+: ${CONCOURSE_PORT:='8080'}
+
+CONCOURSE_LOCAL_URL="http://$CONCOURSE_HOST:$CONCOURSE_PORT"
+CONCOURSE_TCP_SOCKET="/dev/tcp/$CONCOURSE_HOST/$CONCOURSE_PORT"
+
 brew install wget
 brew install --cask virtualbox{,-extension-pack} docker fly
 
