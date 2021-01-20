@@ -64,6 +64,15 @@ the prerequisites have been met.
 
     open http://localhost:8080
 
+## Caveats
+1. Installation *may* require sudo privileges in certain configurations.
+1. Installation of virtualization extensions may require a reboot.
+1. Despite waiting for an open port plus a short pause, on slow machines
+   the browser may still launch before the Concourse web service is
+   fully ready. Just refresh the browser page.
+1. Docker may prompt the user for permission to access docker-compose
+   files in ~/Documents on Big Sur and Catalina.
+
 ----
 
 [Project Home Page](https://github.com/todd-a-jacobs/concourse-local)
