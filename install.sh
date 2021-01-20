@@ -18,10 +18,11 @@
 CONCOURSE_LOCAL_URL="http://$CONCOURSE_HOST:$CONCOURSE_PORT"
 CONCOURSE_TCP_SOCKET="/dev/tcp/$CONCOURSE_HOST/$CONCOURSE_PORT"
 
+# install dependencies
 brew install wget
 brew install --cask virtualbox{,-extension-pack} docker fly
 
-# unsigned app; wontfix per Pivotal developers
+# work around unsigned golang app without GUI interaction
 xattr -dr com.apple.quarantine "$(brew --prefix)/bin/fly"
 
 concourse_dir="$HOME/Documents/docker/concourse"
@@ -34,6 +35,7 @@ print_to_stderr () {
     echo "$@" >&2
 }
 
+# XXX: don't print_to_stderr since wget adds trailing space
 echo 'Launching Docker Desktop ...' >&2
 open /Applications/Docker.app
 until docker ps > /dev/null 2>&1; do
